@@ -196,3 +196,19 @@ footer {
   transition: all 0.3s ease;
 }
 
+.resume-download {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .btn-download {
+    display: inline-block;
+    background-color: #007acc;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .btn-download:hover {
+    background-color: #005fa3;
+  }
