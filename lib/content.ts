@@ -92,6 +92,7 @@ export const contact = {
   email: "varmaakshay2020@gmail.com",      // clicking this copies to clipboard
   github: "https://github.com/akshayvarma121",
   linkedin: "https://www.linkedin.com/in/akshay-varma1201/",
+  kruze: "https://kruze.space",
   note: "I reply to emails from people who've read this page.",
 };
 

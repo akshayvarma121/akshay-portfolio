@@ -82,6 +82,22 @@ export default function Contact() {
           >
             {getDisplayLink(contact.linkedin)}
           </a>
+
+          {/* Kruze link */}
+          {contact.kruze && (
+            <a
+              href={contact.kruze}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link"
+              style={{
+                fontSize: "15px",
+                fontFamily: "var(--font-body), sans-serif",
+              }}
+            >
+              {getDisplayLink(contact.kruze)}
+            </a>
+          )}
         </div>
 
         {/* Message below */}
