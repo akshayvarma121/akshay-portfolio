@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Nav from "@/components/Nav";
-import Terminal from "@/components/Terminal";
+
 import Work from "@/components/Work";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -11,7 +11,7 @@ import Contact from "@/components/Contact";
 import { footer } from "@/lib/content";
 
 export default function Home() {
-  const [heroComplete, setHeroComplete] = useState<boolean>(false);
+  const heroComplete = true; // No longer waiting for terminal animation
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -45,10 +45,74 @@ export default function Home() {
           boxSizing: "border-box",
         }}
       >
-        <Terminal onComplete={() => setHeroComplete(true)} />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{
+            maxWidth: "720px",
+            width: "100%",
+            textAlign: "left",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "var(--font-mono)",
+              color: "var(--accent)",
+              fontSize: "13px",
+              letterSpacing: "0.05em",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Hi, my name is
+          </div>
+          <h1
+            style={{
+              fontFamily: "var(--font-display), sans-serif",
+              fontSize: "clamp(2.5rem, 8vw, 4.5rem)",
+              fontWeight: 700,
+              lineHeight: 1.1,
+              color: "var(--text-primary)",
+              marginBottom: "1rem",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Akshay Varma.
+          </h1>
+          <h2
+            style={{
+              fontFamily: "var(--font-display), sans-serif",
+              fontSize: "clamp(1.5rem, 5vw, 3rem)",
+              fontWeight: 600,
+              lineHeight: 1.2,
+              color: "var(--text-muted)",
+              marginBottom: "2rem",
+            }}
+          >
+            I build software that ships.
+          </h2>
+          <p
+            style={{
+              color: "var(--text-muted)",
+              fontSize: "16px",
+              lineHeight: 1.6,
+              maxWidth: "540px",
+              marginBottom: "3rem",
+            }}
+          >
+            I'm a Full-Stack Software Engineer focused on building robust, scalable 
+            applications. I own problems end-to-end—from system design and 
+            database architecture to seamless frontend execution.
+          </p>
+          <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+            <a href="#work" className="project-cta-btn" style={{ padding: "12px 24px", fontSize: "14px" }}>
+              Check out my work
+            </a>
+          </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
-        {heroComplete && !scrolled && (
+        {!scrolled && (
           <div
             className="pulse-indicator"
             style={{

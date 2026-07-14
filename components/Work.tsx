@@ -59,11 +59,34 @@ export default function Work() {
                       ))}
                     </div>
 
-                    {/* View Project Link */}
-                    <div style={{ marginBottom: "16px" }}>
-                      <a href={caseStudyUrl} className="project-link">
-                        View project →
+                    {/* Project Links */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        marginBottom: "16px",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <a href={caseStudyUrl} className="project-link" style={{ fontSize: "12px" }}>
+                        View Case Study →
                       </a>
+
+                      {project.href && (
+                        <a
+                          href={project.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-cta-btn"
+                          style={{
+                            padding: "6px 12px",
+                            fontSize: "11px",
+                          }}
+                        >
+                          {project.slug === "studiopos" ? "Visit Kruze Studio" : "View on GitHub"}
+                        </a>
+                      )}
                     </div>
 
                     {/* Description */}
