@@ -250,6 +250,23 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 {resolvedParams.slug === "studiopos" ? "Visit Kruze Studio →" : "View on GitHub →"}
               </a>
             )}
+
+            {/* @ts-ignore */}
+            {project?.liveUrl && (
+              <a
+                href={(project as any).liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-cta-btn"
+                style={{
+                  backgroundColor: "var(--accent)",
+                  color: "var(--bg)",
+                  marginLeft: "12px",
+                }}
+              >
+                Live Demo →
+              </a>
+            )}
           </div>
 
           {/* Project Details Grid */}
@@ -268,7 +285,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               }}
             >
               <div>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Status</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Highlight</div>
                 <div style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "var(--accent)", fontWeight: "600", marginTop: "4px" }}>
                   {project.stat}
                 </div>

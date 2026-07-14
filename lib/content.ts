@@ -60,6 +60,17 @@ export const work = {
       href: "https://www.kruze.space/products/studiopos",
     },
     {
+      title: "NESTOS",
+      slug: "nestos",
+      oneliner: "High-performance productivity OS with shared accountability and encrypted vault.",
+      tags: ["React 18", "Node.js", "PostgreSQL", "Supabase"],
+      stat: "AES-256-GCM",
+      statLabel: "zero-knowledge vault",
+      description: "Built a brutalist, multi-tenant productivity OS bridging individual task management and shared accountability. Features a real-time Focus Dashboard, Pomodoro timer with contextual milestones, JSON timetable imports, and a strict PIN-protected encrypted vault for sensitive data.",
+      href: "https://github.com/akshayvarma121/NESTOS",
+      liveUrl: "https://nestos-kappa.vercel.app/",
+    },
+    {
       title: "Kachra Seth",
       slug: "kachra-seth",
       oneliner: "Municipal waste management platform. QR-tracked bins, no IoT hardware.",
@@ -154,6 +165,32 @@ The most challenging part of the project was the print layout. Tailors need to s
 ## Local Payroll
 
 To help manage the staff, the app tracks how much tailors earn. It supports both flat-rate and percentage-based commissions. When an order is marked finished, the app automatically calculates the tailor's cut and logs it. It also tracks cash advances and daily attendance locally in SQLite, preventing double entries.`,
+  },
+  nestos: {
+    title: "NESTOS — Case Study",
+    description: "How I built a high-performance, real-time productivity and accountability operating system for focused execution.",
+    body: `NESTOS is a high-performance, real-time productivity and accountability operating system designed for focused execution. It bridges the gap between individual task management and shared partner accountability, offering strict daily routines, goal tracking, secure data storage, and zero-distraction workflows.
+
+## Shared Space Architecture
+
+The platform is built on a multi-tenant "Shared Space" architecture. A user can generate an Invite Token to link their account with a partner. Once linked, both users share the same workspace for Goals, Tasks, and Deadlines, while maintaining private boundaries for personal chores and encrypted vaults.
+
+## The Command Center
+
+The core of NESTOS is the Focus Dashboard—a real-time command center designed to answer *"What do I need to do right now?"*
+* **Dynamic Horizons**: Automatically pulls scheduled Micro Tasks from the backlog and highlights overdue items in stark red.
+* **Daily Routine Timeline**: A vertical timeline of recurring habits with 3-state tracking (Done, Skipped, Pending).
+* **Strict Timeline Lock**: Users can permanently freeze the current day's routine inputs, rejecting any further edits via frontend or API to enforce accountability.
+
+## Zero-Knowledge Encrypted Vault
+
+Security is a primary focus. NESTOS includes a zero-knowledge encrypted vault for storing API keys, passwords, and sensitive journals. 
+* **AES-256-GCM Encryption**: Data is encrypted on the backend before touching the database. The server never stores raw text.
+* **PIN Protection**: Requires a hashed 6-digit PIN to unlock, and automatically locks after periods of inactivity.
+
+## Advanced Analytics & Imports
+
+Recent iterations introduced a comprehensive Recharts-powered dashboard displaying KPI summary cards, Stacked Bar Charts for routine execution, and Area Charts for goal slice completion over timeframes. I also implemented bulk JSON import capabilities, allowing users to instantly populate their Timetable and Goal Backlogs, dramatically reducing the friction of initial setup.`,
   },
   "kachra-seth": {
     title: "Kachra Seth — Case Study",

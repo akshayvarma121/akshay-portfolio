@@ -87,6 +87,24 @@ export default function Work() {
                           {project.slug === "studiopos" ? "Visit Kruze Studio" : "View on GitHub"}
                         </a>
                       )}
+
+                      {/* @ts-ignore */}
+                      {project.liveUrl && (
+                        <a
+                          href={(project as any).liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-cta-btn"
+                          style={{
+                            padding: "6px 12px",
+                            fontSize: "11px",
+                            backgroundColor: "var(--accent)",
+                            color: "var(--bg)",
+                          }}
+                        >
+                          Live Demo
+                        </a>
+                      )}
                     </div>
 
                     {/* Description */}
