@@ -8,10 +8,12 @@ import Work from "@/components/Work";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 
+import Typewriter from "@/components/Typewriter";
+import MagneticButton from "@/components/MagneticButton";
+
 import { footer } from "@/lib/content";
 
 export default function Home() {
-  const heroComplete = true; // No longer waiting for terminal animation
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -32,140 +34,79 @@ export default function Home() {
       <Nav />
 
       {/* Hero Section */}
-      <section
-        style={{
-          height: "100svh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "var(--bg)",
-          position: "relative",
-          width: "100%",
-          padding: "0 24px",
-          boxSizing: "border-box",
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{
-            maxWidth: "720px",
-            width: "100%",
-            textAlign: "left",
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              color: "var(--accent)",
-              fontSize: "13px",
-              letterSpacing: "0.05em",
-              marginBottom: "1.5rem",
-            }}
+      <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-16">
+        {/* Animated Background Glows */}
+        <div className="absolute top-1/4 left-1/4 w-[60vw] h-[60vw] bg-[radial-gradient(circle,rgba(232,255,71,0.08)_0%,rgba(5,5,5,0)_60%)] rounded-full blur-[100px] -z-10 mix-blend-screen" />
+        <div className="absolute bottom-1/4 right-1/4 w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,rgba(5,5,5,0)_60%)] rounded-full blur-[80px] -z-10 mix-blend-screen" />
+
+        <div className="container relative z-10 flex flex-col items-center justify-center text-center w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-4xl flex flex-col items-center"
           >
-            Hi, my name is
-          </div>
-          <h1
-            style={{
-              fontFamily: "var(--font-display), sans-serif",
-              fontSize: "clamp(2.5rem, 8vw, 4.5rem)",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              color: "var(--text-primary)",
-              marginBottom: "1rem",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Akshay Varma.
-          </h1>
-          <h2
-            style={{
-              fontFamily: "var(--font-display), sans-serif",
-              fontSize: "clamp(1.5rem, 5vw, 3rem)",
-              fontWeight: 600,
-              lineHeight: 1.2,
-              color: "var(--text-muted)",
-              marginBottom: "2rem",
-            }}
-          >
-            I build software that ships.
-          </h2>
-          <p
-            style={{
-              color: "var(--text-muted)",
-              fontSize: "16px",
-              lineHeight: 1.6,
-              maxWidth: "540px",
-              marginBottom: "3rem",
-            }}
-          >
-            I'm a Full-Stack Software Engineer focused on building robust, scalable 
-            applications. I own problems end-to-end—from system design and 
-            database architecture to seamless frontend execution.
-          </p>
-          <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-            <a href="#work" className="project-cta-btn" style={{ padding: "12px 24px", fontSize: "14px" }}>
-              Check out my work
-            </a>
-          </div>
-        </motion.div>
+            <div className="font-mono text-accent text-sm md:text-base tracking-widest uppercase mb-6 flex items-center justify-center gap-4">
+              <span className="w-8 h-[1px] bg-accent inline-block"></span>
+              <Typewriter text="Akshay Varma" delay={500} />
+              <span className="w-8 h-[1px] bg-accent inline-block"></span>
+            </div>
+            
+            <h1 className="display-title mb-6 text-balance">
+              I BUILD<br />SOFTWARE<br />THAT SHIPS.
+            </h1>
+            
+            <p className="font-body text-text-muted text-lg md:text-xl max-w-2xl leading-relaxed mb-12 mx-auto">
+              I’m a full-stack engineer who genuinely enjoys the whole process of building software. From sketching out the database to polishing the final UI, I like taking full ownership of a project and shipping things that actually work in the real world.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <MagneticButton>
+                <a href="#work" className="pill-button pill-button-primary">
+                  View My Work
+                  <span className="ml-2">↓</span>
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <a href="#about" className="pill-button pill-button-secondary">
+                  More About Me
+                </a>
+              </MagneticButton>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
-        {!scrolled && (
-          <div
-            className="pulse-indicator"
-            style={{
-              position: "absolute",
-              bottom: "24px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              fontFamily: "var(--font-mono)",
-              color: "var(--text-muted)",
-              fontSize: "14px",
-              userSelect: "none",
-            }}
-          >
-            ↓
-          </div>
-        )}
+        <motion.div 
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 font-mono text-text-muted text-sm tracking-widest flex flex-col items-center gap-2 transition-opacity duration-500"
+          style={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? 'none' : 'auto' }}
+        >
+          <span className="uppercase text-[10px]">Scroll</span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-text-muted to-transparent"></div>
+        </motion.div>
       </section>
 
       {/* Portfolio Content (Work, About, Contact, Footer) */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={heroComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        style={{ width: "100%" }}
-      >
-        <div id="work">
+      <div className="relative z-20 bg-bg">
+        <div>
           <Work />
         </div>
-        <div id="about">
+        <div>
           <About />
         </div>
-        <div id="contact">
+        <div>
           <Contact />
         </div>
 
-        <footer
-          style={{
-            padding: "40px 0 32px",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "12px",
-              color: "var(--text-muted)",
-            }}
+        <footer className="py-12 text-center border-t border-border mt-12 flex flex-col items-center gap-6">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="font-mono text-xs text-text-muted hover:text-accent uppercase tracking-widest transition-colors cursor-pointer"
           >
-            {footer.text}
-          </div>
+            ↑ Scroll to Top
+          </button>
         </footer>
-      </motion.div>
+      </div>
     </>
   );
 }
-

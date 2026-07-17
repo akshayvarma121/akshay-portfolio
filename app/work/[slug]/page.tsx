@@ -318,7 +318,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Role</div>
                 <div style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "var(--text-primary)", marginTop: "4px" }}>
-                  Creator & Solo Developer
+                  Developer
                 </div>
               </div>
             </div>
@@ -350,6 +350,29 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 .map((block, idx) => renderMarkdownBlock(block, idx))}
             </div>
           )}
+
+          {/* Footer Actions */}
+          <div 
+            style={{
+              marginTop: "96px",
+              paddingTop: "32px",
+              borderTop: "1px solid var(--border)",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              fontFamily: "var(--font-mono)",
+              fontSize: "13px",
+              textTransform: "uppercase",
+              letterSpacing: "0.1em"
+            }}
+          >
+            <a href="/#work" style={{ color: "var(--text-muted)", textDecoration: "none" }} className="hover:text-accent transition-colors">
+              ← Back to Portfolio
+            </a>
+            <a href="#" style={{ color: "var(--text-muted)", textDecoration: "none" }} className="hover:text-accent transition-colors">
+              Scroll to Top ↑
+            </a>
+          </div>
         </div>
       </main>
     </>

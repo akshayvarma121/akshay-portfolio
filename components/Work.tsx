@@ -1,154 +1,96 @@
+"use client";
+
 import { work } from "@/lib/content";
+import TiltCard from "./TiltCard";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Work() {
   return (
-    <section id="work" className="section-padding" style={{ backgroundColor: "var(--bg)" }}>
+    <section id="work" className="section-padding relative">
       <div className="container">
         {/* Eyebrow */}
-        <div className="section-eyebrow">{work.eyebrow}</div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="section-eyebrow"
+        >
+          {work.eyebrow}
+        </motion.div>
 
-        {/* Project List */}
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8">
           {work.projects.map((project, idx) => {
-            // Note that href in content.ts is:
-            // "https://kruze.space" for StudioPOS
-            // "https://github.com/akshayvarma/kachra-seth" for Kachra Seth
-            // The view link should go to /work/[slug] as requested in Step 3/4.
-            // Let's check if the slug is used to route to /work/[slug].
-            // The prompt says: "Below the title+tags row on the left: a small 'View project →' link... pointing to /work/studiopos and /work/kachra-seth respectively."
-            // So we construct the internal path: `/work/${project.slug}`
-            const caseStudyUrl = `/work/${project.slug}`;
-
             return (
-              <div key={project.title}>
-                <div
-                  className="flex flex-col gap-6 md:flex-row md:justify-between md:items-start"
-                  style={{ width: "100%" }}
-                >
-                  {/* Left details */}
-                  <div style={{ flex: 1, maxWidth: "520px" }}>
-                    <h2 className="project-title" style={{ fontSize: "28px" }}>
-                      {project.title}
-                    </h2>
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <TiltCard className="h-full">
+                  <div className="group relative h-full p-8 rounded-3xl border border-border glass-panel transition-all duration-500 hover:border-accent hover:shadow-[0_0_40px_-10px_rgba(232,255,71,0.15)] flex flex-col">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl -z-10" />
 
-                    {/* Stack Tags */}
-                    <div
-                      style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: "8px",
-                        marginTop: "12px",
-                        marginBottom: "12px",
-                      }}
-                    >
+                    <div className="flex justify-between items-start mb-6">
+                      <h3 className="font-display text-2xl font-bold text-text-primary tracking-tight">
+                        {project.title}
+                      </h3>
+                      {/* Status Indicator */}
+                      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border shrink-0">
+                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted">
+                          {project.stat}
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="font-body text-text-muted text-sm leading-relaxed mb-6 flex-grow">
+                      {project.oneliner}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                       {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          style={{
-                            border: "1px solid var(--border)",
-                            padding: "2px 8px",
-                            borderRadius: "3px",
-                            fontFamily: "var(--font-mono)",
-                            fontSize: "11px",
-                            color: "var(--text-muted)",
-                            lineHeight: "1.2",
-                          }}
-                        >
+                        <span key={tag} className="tag-pill text-xs">
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    {/* Project Links */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "16px",
-                        marginBottom: "16px",
-                        flexWrap: "wrap",
-                      }}
-                    >
-                      <a href={caseStudyUrl} className="project-link" style={{ fontSize: "12px" }}>
-                        View Case Study →
-                      </a>
-
-                      {project.href && (
-                        <a
-                          href={project.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-cta-btn"
-                          style={{
-                            padding: "6px 12px",
-                            fontSize: "11px",
-                          }}
-                        >
-                          {project.slug === "studiopos" ? "Visit Kruze Studio" : "View on GitHub"}
-                        </a>
-                      )}
-
+                    {/* Actions */}
+                    <div className="flex items-center justify-between pt-6 border-t border-border">
+                      <Link
+                        href={`/work/${project.slug}`}
+                        className="font-mono text-xs uppercase tracking-widest text-text-primary hover:text-accent transition-colors flex items-center gap-2 group/link"
+                      >
+                        View Case Study
+                        <span className="group-hover/link:translate-x-1 transition-transform">
+                          →
+                        </span>
+                      </Link>
+                      
                       {/* @ts-ignore */}
                       {project.liveUrl && (
                         <a
                           href={(project as any).liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="project-cta-btn"
-                          style={{
-                            padding: "6px 12px",
-                            fontSize: "11px",
-                            backgroundColor: "var(--accent)",
-                            color: "var(--bg)",
-                          }}
+                          className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-text-muted hover:text-accent hover:border-accent transition-colors"
+                          title="Live Demo"
                         >
-                          Live Demo
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
                         </a>
                       )}
                     </div>
-
-                    {/* Description */}
-                    <p
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "15px",
-                        color: "var(--text-muted)",
-                        lineHeight: "1.7",
-                        margin: 0,
-                        marginTop: "12px",
-                      }}
-                    >
-                      {project.description}
-                    </p>
                   </div>
-
-                  {/* Right Stat Block */}
-                  <div className="flex flex-col text-left md:text-right md:min-w-[200px] mt-2 md:mt-0">
-                    <div className="stat-number">{project.stat}</div>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "12px",
-                        color: "var(--text-muted)",
-                        marginTop: "4px",
-                      }}
-                    >
-                      {project.statLabel}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Separator between projects */}
-                {idx < work.projects.length - 1 && (
-                  <hr
-                    style={{
-                      border: "none",
-                      borderTop: "1px solid var(--border)",
-                      margin: "48px 0",
-                    }}
-                  />
-                )}
-              </div>
+                </TiltCard>
+              </motion.div>
             );
           })}
         </div>

@@ -11,7 +11,7 @@ export const meta = {
 };
 
 export const nav = {
-  monogram: "AV",
+  monogram: "Akshay Varma",
   links: [
     { label: "Work", href: "#work" },
     { label: "About", href: "#about" },
@@ -51,45 +51,45 @@ export const work = {
     {
       title: "StudioPOS",
       slug: "studiopos",                  // used for /work/[slug] route
-      oneliner: "Offline-first desktop SaaS for tailoring studios. No cloud, no dependency.",
+      oneliner: "An offline-first desktop app built for tailoring studios, designed to keep working perfectly even when the internet drops.",
       tags: ["Tauri", "Rust", "React 19", "SQLite"],
       stat: "Live in production",
       statLabel: "paying clients",
       description:
-        "Built and shipped end-to-end while in second year of undergrad. Features SHA-256 PIN auth, owner/staff RBAC, dynamic measurement schema with order-history auto-fill, payment-gated delivery, WhatsApp notifications, and a twin-print PDF engine. Zero cloud dependency by design.",
+        "I built and shipped this from scratch during my second year of undergrad. It features secure PIN auth, role-based access for staff, dynamic measurement forms that remember returning customers, and a custom PDF engine for printing working slips. The whole thing runs locally so boutiques never have to worry about cloud outages.",
       href: "https://www.kruze.space/products/studiopos",
     },
     {
       title: "NESTOS",
       slug: "nestos",
-      oneliner: "High-performance productivity OS with shared accountability and encrypted vault.",
+      oneliner: "A productivity workspace that combines personal task management with shared accountability, wrapped around a highly secure encrypted vault.",
       tags: ["React 18", "Node.js", "PostgreSQL", "Supabase"],
       stat: "AES-256-GCM",
       statLabel: "zero-knowledge vault",
-      description: "Built a brutalist, multi-tenant productivity OS bridging individual task management and shared accountability. Features a real-time Focus Dashboard, Pomodoro timer with contextual milestones, JSON timetable imports, and a strict PIN-protected encrypted vault for sensitive data.",
+      description: "I wanted to build something that actually forces you to stay focused. It's a brutalist, multi-tenant OS that gives you a real-time focus dashboard and strict Pomodoro timers. The best part is the encrypted vault—everything is locked behind a strict PIN, so your sensitive data is completely private.",
       href: "https://github.com/akshayvarma121/NESTOS",
       liveUrl: "https://nestos-kappa.vercel.app/",
     },
     {
       title: "Kachra Seth",
       slug: "kachra-seth",
-      oneliner: "Municipal waste management platform. QR-tracked bins, no IoT hardware.",
+      oneliner: "A smart waste management system that cuts out expensive IoT hardware by using QR codes and smartphones to track garbage collection.",
       tags: ["React", "Vite", "FastAPI", "MongoDB"],
       stat: "-90% infra cost",
       statLabel: "vs IoT hardware",
       description:
-        "Eliminated IoT hardware dependency with QR-verified bin tracking. Route optimisation reduced fuel use 30% and improved collection efficiency 40%. AI waste classification via smartphone camera. Competed against senior engineering teams — placed 3rd at Anveshana 2025.",
+        "Cities waste a lot of money on smart bins with sensors. We solved this by slapping QR codes on bins and building an app that workers use to verify collection. It plans optimized routes to save fuel and even uses the phone's camera to classify waste using AI. We ended up taking 3rd place at Anveshana 2025 against some really senior teams.",
       href: "https://github.com/akshayvarma121/kachra-seth",
     },
     {
       title: "IRIS",
       slug: "iris",
-      oneliner: "AI-powered attendance system with fraud prevention and RAG cognitive support.",
+      oneliner: "An AI attendance tracker that uses facial recognition and liveness checks to completely eliminate proxy attendance.",
       tags: ["FastAPI", "React 19", "DeepFace", "ChromaDB", "SQLite"],
       stat: "Verification <500ms",
       statLabel: "with liveness check",
       description:
-        "Designed to eliminate proxy attendance and credential fraud. Features real-time face matching (VGG-Face), texture/reflectance liveness checks, and 10s rotating QR class codes. Integrates a ChromaDB RAG chatbot for policy queries and ELA forensics for certificate verification.",
+        "I built this to stop proxy attendance and fake medical certificates. It uses live face-matching and texture checks so you can't just hold up a photo of someone else. I also hooked up a ChromaDB chatbot so students can instantly ask questions about college policies instead of digging through PDFs.",
       href: "https://github.com/akshayvarma121/IRIS",
     },
   ],
@@ -99,9 +99,10 @@ export const about = {
   eyebrow: "ABOUT",
   avatar: "/avatar.png",
   paragraphs: [
-    "I'm a third-year CS student at SIRT Bhopal and a passionate software engineer. I build tools because I want to see them used in the real world — like StudioPOS, which currently runs in real tailoring studios and serves paying clients.",
-    "I work across the full stack — React, Node, FastAPI, and Rust/Tauri for desktop. I've shipped backend work in production at Pantech.AI, where I cut API latency by 50% through targeted indexing.",
-    "I'm looking for dev roles at startups where owning a problem from schema to deployment is the expectation, not the exception.",
+    "I'm currently in my third year studying CS at SIRT Bhopal, but my real education happens when I'm building things. I don't just write code for the sake of it—I build tools that solve actual problems. For example, my desktop app StudioPOS is currently being used by real tailoring studios every day.",
+    "Technically, I bounce between React, Node, FastAPI, and even Rust when I need to build something for the desktop. I’ve also spent time optimizing production backends at Pantech.AI, where I managed to chop API latency in half just by tweaking how we indexed data.",
+    "Right now, I'm looking to join a startup team where I can take on serious responsibility. I want to be in a place where I'm trusted to handle a feature from the first whiteboard session all the way to deployment.",
+    "When I step away from the keyboard, I'm usually playing football or gaming. It turns out that getting off the screen for a bit is usually the best way to figure out whatever bug I was stuck on."
   ],
   currently: {
     building: "IRIS - Intelligent AI attendance system ",          // ← update whenever you start something new
@@ -114,6 +115,7 @@ export const contact = {
   email: "varmaakshay2020@gmail.com",      // clicking this copies to clipboard
   github: "https://github.com/akshayvarma121",
   linkedin: "https://www.linkedin.com/in/akshay-varma1201/",
+  leetcode: "https://leetcode.com/u/7wss1wuDAv/",
   kruze: "https://kruze.space",
   note: "I reply to emails from people who've read this page.",
 };
