@@ -13,6 +13,35 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="container"
       >
+        {/* IRL / Behind the scenes Gallery */}
+        <div className="mb-24">
+          <div className="section-eyebrow">
+            BEHIND THE SCENES
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {about.gallery.map((img, i) => (
+              <div key={i} className="glass-panel p-2 rounded-3xl overflow-hidden group h-72 md:h-[400px] relative cursor-pointer">
+                {/* Subtle border highlight on hover */}
+                <div className="absolute inset-0 border border-transparent group-hover:border-white/15 rounded-3xl transition-colors duration-500 z-20 pointer-events-none shadow-inner" />
+                
+                {/* Photo Description (shows on hover) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end p-6 md:p-8 rounded-3xl">
+                  <p className="text-text-primary text-base md:text-lg font-body leading-snug text-balance">
+                    {img.description}
+                  </p>
+                </div>
+
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.src}
+                  alt={`Gallery image ${i + 1}`}
+                  className={`w-full h-full ${img.fit} ${img.position} grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 rounded-[20px] relative z-10`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Eyebrow */}
         <div className="section-eyebrow">{about.eyebrow}</div>
 

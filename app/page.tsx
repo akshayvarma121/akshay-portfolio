@@ -11,7 +11,7 @@ import Contact from "@/components/Contact";
 import Typewriter from "@/components/Typewriter";
 import MagneticButton from "@/components/MagneticButton";
 
-import { footer } from "@/lib/content";
+import { footer, contact } from "@/lib/content";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -46,21 +46,21 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="w-full max-w-4xl flex flex-col items-center"
           >
-            <div className="font-mono text-accent text-sm md:text-base tracking-widest uppercase mb-6 flex items-center justify-center gap-4">
-              <span className="w-8 h-[1px] bg-accent inline-block"></span>
+            <div className="font-mono text-text-muted text-sm md:text-base tracking-widest uppercase mb-6 flex items-center justify-center gap-4">
               <Typewriter text="Akshay Varma" delay={500} />
-              <span className="w-8 h-[1px] bg-accent inline-block"></span>
             </div>
             
             <h1 className="display-title mb-6 text-balance">
-              I BUILD<br />SOFTWARE<br />THAT SHIPS.
+              I BUILD<br />
+              <span className="bg-accent text-bg px-3 py-1 inline-block shadow-sm">SOFTWARE</span><br />
+              THAT SHIPS.
             </h1>
             
             <p className="font-body text-text-muted text-lg md:text-xl max-w-2xl leading-relaxed mb-12 mx-auto">
               I’m a full-stack engineer who genuinely enjoys the whole process of building software. From sketching out the database to polishing the final UI, I like taking full ownership of a project and shipping things that actually work in the real world.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12">
               <MagneticButton>
                 <a href="#work" className="pill-button pill-button-primary">
                   View My Work
@@ -72,6 +72,19 @@ export default function Home() {
                   More About Me
                 </a>
               </MagneticButton>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center gap-6 md:gap-10 font-mono text-xs md:text-sm tracking-widest uppercase relative z-20">
+              <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors cursor-pointer">
+                GitHub
+              </a>
+              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors cursor-pointer">
+                LinkedIn
+              </a>
+              <a href={contact.leetcode} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors cursor-pointer">
+                LeetCode
+              </a>
             </div>
           </motion.div>
         </div>

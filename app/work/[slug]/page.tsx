@@ -351,6 +351,22 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
           )}
 
+          {/* Image Gallery */}
+          {study.gallery && study.gallery.length > 0 && (
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {study.gallery.map((img, i) => (
+                <div key={i} className="glass-panel p-2 rounded-2xl overflow-hidden group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={img} 
+                    alt={`${displayTitle} showcase ${i + 1}`} 
+                    className="w-full h-64 md:h-56 object-cover rounded-xl grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* Footer Actions */}
           <div 
             style={{

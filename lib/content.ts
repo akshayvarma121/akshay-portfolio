@@ -58,6 +58,7 @@ export const work = {
       description:
         "I built and shipped this from scratch during my second year of undergrad. It features secure PIN auth, role-based access for staff, dynamic measurement forms that remember returning customers, and a custom PDF engine for printing working slips. The whole thing runs locally so boutiques never have to worry about cloud outages.",
       href: "https://www.kruze.space/products/studiopos",
+      image: "/ui1.png",
     },
     {
       title: "NESTOS",
@@ -80,6 +81,7 @@ export const work = {
       description:
         "Cities waste a lot of money on smart bins with sensors. We solved this by slapping QR codes on bins and building an app that workers use to verify collection. It plans optimized routes to save fuel and even uses the phone's camera to classify waste using AI. We ended up taking 3rd place at Anveshana 2025 against some really senior teams.",
       href: "https://github.com/akshayvarma121/kachra-seth",
+      image: "/Ks1.jpeg",
     },
     {
       title: "IRIS",
@@ -108,6 +110,13 @@ export const about = {
     building: "IRIS - Intelligent AI attendance system ",          // ← update whenever you start something new
     reading: "The Diary Of a CEO",
   },
+  gallery: [
+    { src: "/ks2.jpeg", description: "The core team behind the Kachra Seth project.", fit: "object-contain", position: "object-center" },
+    { src: "/Ks1.jpeg", description: "Engaging with the crowd and running live demonstrations of our prototype at the Anveshana tech fair.", fit: "object-contain", position: "object-center" },
+    { src: "/hck.jpeg", description: "Presenting the Kachra Seth prototype to the panel of judges", fit: "object-contain", position: "object-center" },
+    { src: "/ks3.jpeg", description: "Celebrating the victory alongside all the winning teams at the Anveshana 2025 hackathon.", fit: "object-contain", position: "object-center" },
+    { src: "/ks4.jpeg", description: "Securing 3rd place overall at the Anveshana 2025 finals.", fit: "object-contain", position: "object-center" }
+  ],
 };
 
 export const contact = {
@@ -132,6 +141,7 @@ export const caseStudies: Record<string, {
   title: string;
   description: string;   // meta description for SEO
   body: string;   // markdown or plain text
+  gallery?: string[];
 }> = {
   studiopos: {
     title: "StudioPOS — Case Study",
